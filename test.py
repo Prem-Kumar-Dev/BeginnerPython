@@ -1,5 +1,14 @@
-temBoard = {'Top-L': ' ', 'Top-M': ' ', 'Top-R': ' ', 'Mid-L': ' ', 'Mid-M': ' ', 'Mid-R': ' ', 'Low-L': ' ',
-            'Low-M': ' ', 'Low-R': ' '}
+import numpy as np
+
+
+def value_assign(a, b):
+    lst = temBoard[a]
+
+
+a, b, c, d, e, f, g, h, i = 0, 0, 0, 0, 0, 0, 0, 0, 0
+
+temBoard = {'Top-L': (' ', a), 'Top-M': (' ', b), 'Top-R': (' ', c), 'Mid-L': (' ', d), 'Mid-M': (' ', e), 'Mid-R': (' ', f), 'Low-L': (' ', g),
+            'Low-M': (' ', h), 'Low-R': (' ', i)}
 
 
 def compare(a, b, c):
@@ -7,7 +16,7 @@ def compare(a, b, c):
         return True
 
 
-def win():
+'''def win():
     global m
     if compare('Top-L', 'Top-M', 'Top-R'):
         print('Winner:{}'.format(turn))
@@ -32,37 +41,38 @@ def win():
         return True
     elif compare('Top-M', 'Mid-M', 'Low-M'):
         print('Winner:{}'.format(turn))
-        return True
+        return True'''
 
 
 def board():
 
-    print(temBoard['Top-L']+'|'+temBoard['Top-M']+'|'+temBoard['Top-R']+'\n' +
+    print(temBoard['Top-L'][0]+'|'+temBoard['Top-M'][0]+'|'+temBoard['Top-R'][0]+'\n' +
           '-+-+-\n' +
-          temBoard['Mid-L']+'|'+temBoard['Mid-M']+'|'+temBoard['Mid-R']+'\n' +
+          temBoard['Mid-L'][0]+'|'+temBoard['Mid-M'][0]+'|'+temBoard['Mid-R'][0]+'\n' +
           '-+-+-\n' +
-          temBoard['Low-L']+'|'+temBoard['Low-M']+'|'+temBoard['Low-R']+'\n')
+          temBoard['Low-L'][0]+'|'+temBoard['Low-M'][0]+'|'+temBoard['Low-R'][0]+'\n')
 
 
 board()
 turn = 'X'
-lst = []
+
 for i in range(9):
     print('It is {} to play'.format(turn))
     while True:
         x = input('Name the block where you want to play:\n')
-        if x in lst:
-            print('!!!Move Already on the Board. Please choose another move.!!!')
-            board()
-        elif x not in temBoard.keys():
-            print("!!Invalid Move!! Move avalable=\n{}".format(temBoard.keys()))
-        else:
-            lst.append(x)
+        if x in temBoard.keys():
             break
-    temBoard[x] = turn
+        if x not in temBoard.keys():
+            print("!!Invalid Move!! Move avalable=\n{}".format(temBoard.keys()))
+    if turn == 'X':
+        temBoard[x][0] = turn
+        temBoard[x][1] = 1
+    elif turn == 'O':
+        temBoard[x][0] = turn
+        temBoard[x][1] = 2
+
     board()
-    if win() == True:
-        break
+
     if turn == 'X':
         turn = 'O'
     elif turn == 'O':
