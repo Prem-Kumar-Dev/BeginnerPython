@@ -1,40 +1,30 @@
-user_input = int(input('The number of values you have to work with:\n'))
-factors = []
-result = []
-x = 2
-counter = 0
+def hcf(user):
+	
+	for i in range (2,min(user)+1):
+		n=0
+		
+		while True:
+			
+			for x in (user):
+				
+				if x%i==0:
+					n+=1
+					
+			if n == len(user):
+					l=i
+					break
+			else:
+					break
+					
+	print(l)
 
 
-for y in range(0, user_input):
+user_input=int(input('No. of values you want to work with:\n'))
+lst=[]
 
-    user_value = int(input('The number:\n'))
+for c in range(user_input):
+	
+	value=int(input('Enter the no.:\n'))
+	lst.append(value)
 
-    while user_value != 1:
-
-        while user_value % x == 0:
-            user_value = user_value/x
-            factors.append(x)
-
-        x = x+1
-
-    counter = counter+1
-
-    if counter == 1:
-        result = factors
-
-    else:
-        answer = []
-        for n in result:
-            if n in factors:
-                factors.remove(n)
-                answer.append(n)
-        result = answer
-
-    x = 2
-    factors = []
-
-x = 1
-for n in answer:
-    x = x*n
-
-print('HCF:', x)
+hcf(lst)
