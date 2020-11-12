@@ -1,5 +1,7 @@
-temBoard = {'Top-L': ' ', 'Top-M': ' ', 'Top-R': ' ', 'Mid-L': ' ', 'Mid-M': ' ', 'Mid-R': ' ', 'Low-L': ' ',
-            'Low-M': ' ', 'Low-R': ' '}
+def clearBoard():
+    global temBoard
+    temBoard = {'7': ' ', '8': ' ', '9': ' ', '4': ' ', '5': ' ', '6': ' ', '1': ' ',
+                '2': ' ', '3': ' '}
 
 
 def compare(a, b, c):
@@ -9,68 +11,78 @@ def compare(a, b, c):
 
 def win():
     global m
-    if compare('Top-L', 'Top-M', 'Top-R'):
+    if compare('7', '8', '9'):
         print('Winner:{}'.format(turn))
         return True
-    elif compare('Mid-L', 'Mid-M', 'Mid-R'):
+    elif compare('4', '5', '6'):
         print('Winner:{}'.format(turn))
         return True
-    elif compare('Low-L', 'Low-M', 'Low-R'):
+    elif compare('1', '2', '3'):
         print('Winner:{}'.format(turn))
         return True
-    elif compare('Top-L', 'Mid-M', 'Low-R'):
+    elif compare('7', '5', '3'):
         print('Winner:{}'.format(turn))
         return True
-    elif compare('Low-L', 'Mid-M', 'Top-R'):
+    elif compare('1', '5', '9'):
         print('Winner:{}'.format(turn))
         return True
-    elif compare('Top-L', 'Mid-L', 'Low-L'):
+    elif compare('7', '4', '1'):
         print('Winner:{}'.format(turn))
         return True
-    elif compare('Top-R', 'Mid-R', 'Low-R'):
+    elif compare('9', '6', '3'):
         print('Winner:{}'.format(turn))
         return True
-    elif compare('Top-M', 'Mid-M', 'Low-M'):
+    elif compare('8', '5', '2'):
         print('Winner:{}'.format(turn))
         return True
 
 
 def board():
 
-    print(temBoard['Top-L']+'|'+temBoard['Top-M']+'|'+temBoard['Top-R']+'\n' +
+    print(temBoard['7']+'|'+temBoard['8']+'|'+temBoard['9']+'\n' +
           '-+-+-\n' +
-          temBoard['Mid-L']+'|'+temBoard['Mid-M']+'|'+temBoard['Mid-R']+'\n' +
+          temBoard['4']+'|'+temBoard['5']+'|'+temBoard['6']+'\n' +
           '-+-+-\n' +
-          temBoard['Low-L']+'|'+temBoard['Low-M']+'|'+temBoard['Low-R']+'\n')
+          temBoard['1']+'|'+temBoard['2']+'|'+temBoard['3']+'\n')
 
 
-board()
-turn = 'X'
-lst = []
-for i in range(9):
-    print('It is {} to play'.format(turn))
-    while True:
-        x = input('Name the block where you want to play:\n')
-        if x in lst:
-            print('!!!Move Already on the Board. Please choose another move.!!!')
-            board()
-        elif x not in temBoard.keys():
-            print("!!Invalid Move!! Move avalable=\n{}".format(temBoard.keys()))
-        else:
-            lst.append(x)
-            break
-    temBoard[x] = turn
+def process():
+    clearBoard()
     board()
-    if win() == True:
-        break
-    if turn == 'X':
-        turn = 'O'
-    elif turn == 'O':
-        turn = 'X'
-    else:
-        print('Invalid Input')
-        i = i-1
-    if i == 8:
-        print('Match Draw')
+    global turn, lst
+    turn = 'X'
+    lst = []
+    for i in range(9):
+        print('It is {} to play'.format(turn))
+        while True:
+            x = input('Name the block where you want to play:\n')
+            if x in lst:
+                print('!!!Move Already on the Board. Please choose another move.!!!')
+                board()
+            elif x not in temBoard.keys():
+                print("!!Invalid Move!! Move avalable=\n{}".format(temBoard.keys()))
+            else:
+                lst.append(x)
+                break
+        temBoard[x] = turn
+        board()
+        if win() == True:
+            break
+        if turn == 'X':
+            turn = 'O'
+        elif turn == 'O':
+            turn = 'X'
+        else:
+            print('Invalid Input')
+            i = i-1
+        if i == 8:
+            print('Match Draw')
 
-print('Play Again!')
+
+while True:
+    process()
+    confirm = input('Play Again(Y/N)\n')
+
+    if confirm == 'N':
+        print('Thanks For Playing')
+        break
