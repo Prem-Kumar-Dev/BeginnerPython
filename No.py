@@ -11,3 +11,6 @@ def fac(n):
 
 
 print('The factorial of {} is equal to {}'.format(a, fac(a)))
+
+
+# testing if works
