@@ -58,6 +58,3 @@ def multiply():
     arr3 = arr3.reshape(column2, row1)
     print("\nMatrix multiplication of\n\n", arr1,
           "\n\n&\n\n", arr2, "\n\nis equals to\n\n", arr3)
-
-
-kljl
