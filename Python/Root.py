@@ -1,2 +1,2 @@
-a=input()
-print(len(a))
+item=[("1 2 3 4")]
+print(item)

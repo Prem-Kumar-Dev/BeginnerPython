@@ -1,1 +1,1 @@
-x=str(x)
+except ValueError as ve:

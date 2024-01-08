@@ -10,7 +10,7 @@ b=float(input("Second number:_"))
 print("Sum:_",a+b)
 print("Diff:_",a-b)
 print("Product:_",a*b)
-print("Devide:_",a/b)
+print("Divide:_",a/b)
 print("Reminder:_",a%b)
 print("Dif:_",a//b)
 print("Exp:_",a**b)"""
@@ -169,7 +169,7 @@ for i in range(0,a):
     print()"""
 
 
-a="Ram"
+"""a="Ram"
 b="Mohan"
 c=a.swapcase()+b.swapcase()
 d=list(c)
@@ -177,5 +177,30 @@ print(c)
 for i in range(1,len(c)+1,2):
     d[i]=d[i].lower()
 c=''.join(d)
-print(c)
+print(c)"""
+
+"""def prime(x):
+    c=0
+    for i in range(2,x+1):
+        if x%i==0:
+            c+=1
+        if c>1:
+            print("{} is not a prime number.".format(x))
+            break
+    if c<=1:
+        print("{} is a prime number.".format(x))
+
+prime(11)"""
+
+"""def unique(x):
+    a=set(x)
+    a=sorted(list(a))
+    print(a)
+
+unique([1,6,9,2,6,2,2,6,10])"""
+
+
+def pasclesNumber(x):
+    
+
 
