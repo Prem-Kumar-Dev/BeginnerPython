@@ -10,8 +10,4 @@ class Solution:
             else:
                 sum=sum+int(dic.get(s[i]))
         return sum
-        
-a = "XXXIX"
-solution_instance = Solution()
-result = solution_instance.romanToInt(a)
-print(result)
+                
