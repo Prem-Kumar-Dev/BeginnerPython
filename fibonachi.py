@@ -1,6 +1,6 @@
 def febo(n):
     if n==0:
-        return 0
+        return "ZeRo"
     elif n==1:
         return 1
     else:
