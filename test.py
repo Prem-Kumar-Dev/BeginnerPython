@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-m=10
-n=20
-a=[]
-a.append(n), a.append(m) 
-print(a)
-=======
-from math import cube
->>>>>>> 14f1b3e5b312cbcb28934ed238d381eabd4bce6a
+def calculate_list():
+    user_input = input("Enter Number By Spaces")
+    add = [int(x) for x in user_input.split()]
+    return sum(add)
+
+print(calculate_list())

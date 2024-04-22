@@ -1,5 +1,3 @@
-
-
 def sum_of_digits():
     number = input("Enter a number: ")
     total = sum(int(digit) for digit in number)
@@ -10,6 +8,7 @@ def area_of_circle():
     radius = float(input("Enter the radius of the circle: "))
     area = pi * (radius ** 2)
     print("Area of the circle:", area)
+area_of_circle()
 
 def best_of_two_averages():
     marks = [float(input(f"Enter marks for test {i+1}: ")) for i in range(3)]
@@ -221,6 +220,7 @@ def pascals_triangle(n):
         triangle.append(row)
     for row in triangle:
         print(row)
+
 
 def handle_zero_division():
     try:

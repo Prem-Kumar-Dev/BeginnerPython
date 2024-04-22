@@ -1,0 +1,24 @@
+class Player:
+    def __init__(self, name, goals):
+        self.name = name
+        self._goals = goals
+
+    @property
+    def goals(self):
+        return self._goals
+
+    @goals.setter
+    def goals(self, value):
+        if isinstance(value, int) and value >= 0:
+            self._goals = value
+        else:
+            self._goals = 0
+
+# Sample Input 1
+player1 = Player("John", -5)
+print(player1.name)
+print(player1.goals)  # Output: 5
+player1.goals = 10
+print(player1.goals)  # Output: 10
+
+

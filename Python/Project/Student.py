@@ -42,7 +42,7 @@ def Adding_data():
         chemistry=float(input("Mark in Chemistry:"))
         english=float(input("Mark in English:"))
         per=((maths+physics+chemistry+english)/400)*100
-        std=StudentPMS(roll,name,maths,physics,chemistry,english) 
+        std=StudentPMS(roll,name,maths,physics,chemistry,english)
         c.execute("INSERT INTO Students VALUES (?,?,?,?,?,?,?)", (std.roll,std.name,std.maths,std.physics,std.chemistry,std.english,per))
         con.commit()
     else:
@@ -117,24 +117,32 @@ def Duplicate_data(roll):
 
 
 def main():
-    while True:
-        Check_AND_make_table()
-        Table_disp()
-        user=int(input("Press:\n1) ENTER DATA\n2) SEARCH\n3) UPDATE\n4) DELETE(data)\n5) DELETE(table)\n0) EXIT \n_ "))
-        if user==0:
+    try:
+        while True:
+            Check_AND_make_table()
             Table_disp()
-            print("Thank You")
-            break
-        elif user==1:
-            Adding_data()
-        elif user==2:
-            Search_data()
-        elif user==3:
-            Update_data()
-        elif user==4:
-            Delete_data()
-        elif user==5:
-            Drop_Table()
-        Table_disp()
+            user=int(input("Press:\n1) ENTER DATA\n2) SEARCH\n3) UPDATE\n4) DELETE(data)\n5) DELETE(table)\n0) EXIT \n_ "))
+            if user==0:
+                Table_disp()
+                print("Thank You!")
+                break
+            elif user==1:
+                Adding_data()
+            elif user==2:
+                Search_data()
+            elif user==3:
+                Update_data()
+            elif user==4:
+                Delete_data()
+            elif user==5:
+                Drop_Table()
+            else:
+                print("Enter a Valid input.")
+                holder = input("\nPress Enter to continue...")
+            Table_disp()
+    except ValueError:
+        print("Please enter valid data.")
+        holder = input("\nPress Enter to continue...")
+        main()
 main()
 con.close()

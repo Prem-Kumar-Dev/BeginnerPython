@@ -1,16 +1,10 @@
-a = int(input('Number:\n'))
+#print pascal's triangle
+def pascal(n):
+    row = [1]
+    k = [0]
+    for x in range(max(n,0)):
+        print (row)
+        row=[l+r for l,r in zip(row+k,k+row)]
+    return n>=1
+pascal(6)
 
-
-def fac(n):
-
-    if n > 0:
-        return(n*fac(n-1))
-
-    else:
-        return 1
-
-
-print('The factorial of {} is equal to {}'.format(a, fac(a)))
-
-
-# testing if works

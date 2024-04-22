@@ -10,4 +10,4 @@ class Solution:
             else:
                 sum=sum+int(dic.get(s[i]))
         return sum
-                
+
