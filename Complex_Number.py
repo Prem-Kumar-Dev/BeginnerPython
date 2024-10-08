@@ -40,13 +40,13 @@ class Complex_num:
                     self.c+=1
                     if self.number[i+1] in Complex_num.symbol:
             
-                            if (self.number[i]!=self.number[i+1] and self.number[i+1]=='-') or (self.number[i]==self.number[i+1] and self.number[i]=='-'):
-                                self.negative=True
-                                i=i+1
-                            elif(self.number[i]!=self.number[i+1] and self.number[i+1]=='+') or (self.number[i]==self.number[i+1] and self.number[i]=='+'):
-                                i=i+1
-                            else:
-                                raise ValueError("Enter in correct Format!")
+                        if (self.number[i]!=self.number[i+1] and self.number[i+1]=='-') or (self.number[i]==self.number[i+1] and self.number[i]=='-'):
+                            self.negative=True
+                            i=i+1
+                        elif(self.number[i]!=self.number[i+1] and self.number[i+1]=='+') or (self.number[i]==self.number[i+1] and self.number[i]=='+'):
+                            i=i+1
+                        else:
+                            raise ValueError("Enter in correct Format!")
 
                                 
 
