@@ -16,4 +16,4 @@ class My_button:
 
 windows=Tk()
 windows.geometry("500x300")
-F=
+windows.title("Button")
